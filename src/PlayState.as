@@ -12,9 +12,11 @@ package
 			text.setFormat( null, 16, 0xcccccccc, "center" );
 			this.add(text);
 			
-			var player:Player = new Player(150, 150);
+			var player:Player = new Player(FlxG.width/2, FlxG.height - 100);
 			this.add(player);
 			
+			var enemy:Enemy = new Enemy(FlxG.width/2, 0);
+			this.add(enemy);
 		}
 		
 		override public function update():void

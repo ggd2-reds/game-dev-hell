@@ -43,8 +43,8 @@ package
 			if (this.y >= (FlxG.height - height)) {
 				y = FlxG.height - height;
 			}
-			else if (this.y <= 0) {
-				y = 0;
+			else if (this.y <= FlxG.height / 2) {
+				y = FlxG.height / 2;
 			}
 			
 			super.update();
