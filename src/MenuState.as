@@ -6,7 +6,7 @@ package
 	{
 		override public function MenuState():void
 		{
-			var text:FlxText = new FlxText( 0, (FlxG.height / 2) - 80, FlxG.width, "Game Title" );
+			var text:FlxText = new FlxText( 0, (FlxG.height / 2) - 80, FlxG.width, "Game Dev Hell." );
 			
 			text.setFormat( null, 32, 0xeeeeeeee, "center" );
 			this.add(text);

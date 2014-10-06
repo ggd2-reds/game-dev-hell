@@ -12,6 +12,9 @@ package
 			text.setFormat( null, 16, 0xcccccccc, "center" );
 			this.add(text);
 			
+			var player:Player = new Player(150, 150);
+			this.add(player);
+			
 		}
 		
 		override public function update():void
