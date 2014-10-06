@@ -8,18 +8,22 @@ package
 		[Embed(source="../assets/Player.png")]
 		public var image : Class;
 		
-		[Embed(source = "../assets/PlayerBullet.png")]
-		public var bulletImage : Class;
-		
 		private const speed:Number = 200;
 		
+		//bullet vars
+		[Embed(source = "../assets/PlayerBullet.png")]
+		public var bulletImage : Class;
 		private const maxBullets:Number = 3;
-		
 		private var bullets:ArrayList;
+		private var framesSinceLastBullet:Number;
+		private const bulletCoolDown:Number = 15;
+		
 		
 		public function Player( X:Number, Y:Number) {
 			super(X, Y, this.image);
 			this.bullets = new ArrayList();
+			this.framesSinceLastBullet = 0;
+			this.health = 100;
 		}
 		
 		public override function update():void {
@@ -56,6 +60,8 @@ package
 				y = FlxG.height / 2;
 			}
 			
+			++this.framesSinceLastBullet;
+			
 			// Check for bullets
 			if (FlxG.keys.SPACE) {
 				fireBullet();
@@ -66,11 +72,24 @@ package
 			super.update();
 		}
 		
+		public function getBullets(): ArrayList {
+			return this.bullets;
+		}
+		
+		public override function kill():void {
+			health -= 50;
+			if (health <= 0) {
+				super.kill();
+				visible = false;
+			}
+		}
+		
 		private function fireBullet():void {
-			if (bullets.length < 3 ){
+			if ((bullets.length < 3) && this.framesSinceLastBullet >= this.bulletCoolDown){
 				var bullet:Bullet = new Bullet(x + width/4, y, bulletImage, true);
 				FlxG.state.add(bullet);
 				bullets.addItem(bullet);
+				this.framesSinceLastBullet = 0;
 			}
 		}
 		
