@@ -18,7 +18,7 @@ package
 		public var bulletImage : Class;
 		private var bullets:ArrayList;
 		private var framesSinceLastBullet:Number;
-		private const bulletCoolDown:Number = 15;
+		private const bulletCoolDown:Number = 20;
 		
 		public function Enemy(X:Number, Y:Number) {
 			super (X, Y, this.image);

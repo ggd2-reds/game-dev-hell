@@ -10,12 +10,7 @@ package
 		
 		override public function PlayState():void
 		{
-			/* initialization code */
-			
-			var text:FlxText = new FlxText( 0, FlxG.height - 24, FlxG.width, "The game has started, currently in the play state." );
-			text.setFormat( null, 16, 0xcccccccc, "center" );
-			this.add(text);
-			
+			/* initialization code */			
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);
 			this.add(player);
 			
@@ -30,9 +25,17 @@ package
 				FlxU.overlap(enemy, Bullet(playerBullets.getItemAt(i)));
 			}
 			
+			if (this.player.dead) {
+				FlxG.state = new GameOverState("YOU LOSE!");
+			}
+			
 			var enemyBullets:ArrayList = enemy.getBullets();
 			for (var j:Number = 0; j < enemyBullets.length; ++j) {
 				FlxU.overlap(player, Bullet(enemyBullets.getItemAt(j)));
+			}
+
+			if (this.enemy.dead) {
+				FlxG.state = new GameOverState("YOU WIN!");
 			}
 			
 			super.update();
