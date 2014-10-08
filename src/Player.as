@@ -2,6 +2,8 @@ package
 {
 	import org.flixel.*;
 	import mx.collections.ArrayList;
+	import flash.utils.Timer;
+	import flash.events.*;
 
 	public class Player extends FlxSprite
 	{
@@ -15,15 +17,21 @@ package
 		public var bulletImage : Class;
 		private const maxBullets:Number = 3;
 		private var bullets:ArrayList;
-		private var framesSinceLastBullet:Number;
-		private const bulletCoolDown:Number = 15;
+		private var canFire:Boolean;
+		private var bulletCoolDown:Number = 800;		
+		private var bulletCoolDownTimer:Timer;
 		
+		private function bulletCoodDownTimerExpired(e:Event):void {
+			this.canFire = true;
+		}
 		
 		public function Player( X:Number, Y:Number) {
 			super(X, Y, this.image);
 			this.bullets = new ArrayList();
-			this.framesSinceLastBullet = 0;
 			this.health = 100;
+			bulletCoolDownTimer = new Timer(bulletCoolDown, 0);
+			bulletCoolDownTimer.addEventListener(TimerEvent.TIMER, bulletCoodDownTimerExpired);
+			bulletCoolDownTimer.start();
 		}
 		
 		public override function update():void {
@@ -60,8 +68,6 @@ package
 				y = FlxG.height / 2;
 			}
 			
-			++this.framesSinceLastBullet;
-			
 			// Check for bullets
 			if (FlxG.keys.SPACE) {
 				fireBullet();
@@ -85,11 +91,15 @@ package
 		}
 		
 		private function fireBullet():void {
-			if ((bullets.length < 3) && this.framesSinceLastBullet >= this.bulletCoolDown){
+			if ((bullets.length < 3) && canFire) {
+				canFire = false;
+
 				var bullet:Bullet = new Bullet(x + width/4, y, bulletImage, true);
 				FlxG.state.add(bullet);
 				bullets.addItem(bullet);
-				this.framesSinceLastBullet = 0;
+				
+				bulletCoolDownTimer.reset();
+				bulletCoolDownTimer.start();
 			}
 		}
 		

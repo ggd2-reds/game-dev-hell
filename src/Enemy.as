@@ -1,7 +1,10 @@
 package 
 {
+	import flash.events.TimerEvent;
 	import org.flixel.*;
 	import mx.collections.ArrayList;
+	import flash.utils.Timer;
+	import flash.events.*;
 
 	public class Enemy extends FlxSprite
 	{
@@ -17,15 +20,22 @@ package
 		[Embed(source = "../assets/EnemyBullet.png")]
 		public var bulletImage : Class;
 		private var bullets:ArrayList;
-		private var framesSinceLastBullet:Number;
-		private const bulletCoolDown:Number = 20;
+		private var canFire:Boolean;
+		private var bulletCoolDown:Number = 600;		
+		private var bulletCoolDownTimer:Timer;
+		
+		private function bulletCoodDownTimerExpired(e:Event):void {
+			this.canFire = true;
+		}
 		
 		public function Enemy(X:Number, Y:Number) {
 			super (X, Y, this.image);
 			this.goLeft = true;
 			this.bullets = new ArrayList();
-			this.framesSinceLastBullet = 0;
 			this.health = 100;
+			bulletCoolDownTimer = new Timer(bulletCoolDown, 0);
+			bulletCoolDownTimer.addEventListener(TimerEvent.TIMER, bulletCoodDownTimerExpired);
+			bulletCoolDownTimer.start();
 		}
 		
 		public override function update():void {
@@ -62,12 +72,12 @@ package
 		}
 		
 		private function updateBullets():void {
-			++this.framesSinceLastBullet;
-			if (this.framesSinceLastBullet >= this.bulletCoolDown) {
+			if (canFire) {
+				this.canFire = false;
+
 				var bullet:Bullet = new Bullet(x + width / 4, y + height, bulletImage, false);
 				FlxG.state.add(bullet);
-				bullets.addItem(bullet);
-				this.framesSinceLastBullet = 0;
+				bullets.addItem(bullet);				
 			}
 		}
 		
