@@ -4,12 +4,13 @@ package
 
 	public class Bullet extends FlxSprite
 	{
-		private const speed:Number = 400;
+		private var speed:Number;
 		private var directionUp:Boolean;
 		
-		public function Bullet(X:Number, Y:Number, image:Class, directionUp:Boolean) {
+		public function Bullet(X:Number, Y:Number, image:Class, directionUp:Boolean, speed:Number=400) {
 			super (X, Y, image);
 			this.directionUp = directionUp;
+			this.speed = speed;
 		}
 		
 		public override function update():void {
@@ -27,6 +28,10 @@ package
 			}
 			
 			super.update();
+		}
+		
+		public function get Speed():Number {
+			return this.speed;
 		}
 	}
 	

@@ -10,7 +10,7 @@ package
 		[Embed(source="../assets/Player.png")]
 		public var image : Class;
 		
-		private const speed:Number = 200;
+		private const speed:Number = 400;
 		
 		//bullet vars
 		[Embed(source = "../assets/PlayerBullet.png")]
