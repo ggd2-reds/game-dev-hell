@@ -35,7 +35,31 @@ package
 		}
 		
 		public override function update():void {
+			updatePosition();
 			
+    		// Check for bullets
+			if (FlxG.keys.SPACE) {
+				fireBullet();
+			}
+			
+			deleteBullets();
+			
+			super.update();
+		}
+		
+		public function getBullets(): ArrayList {
+			return this.bullets;
+		}
+		
+		public override function kill():void {
+			health -= 50;
+			if (health <= 0) {
+				super.kill();
+				visible = false;
+			}
+		}
+		
+		private function updatePosition():void {
 			velocity.x = 0;
 			velocity.y = 0;
 			
@@ -68,26 +92,6 @@ package
 				y = FlxG.height / 2;
 			}
 			
-			// Check for bullets
-			if (FlxG.keys.SPACE) {
-				fireBullet();
-			}
-			
-			deleteBullets();
-			
-			super.update();
-		}
-		
-		public function getBullets(): ArrayList {
-			return this.bullets;
-		}
-		
-		public override function kill():void {
-			health -= 50;
-			if (health <= 0) {
-				super.kill();
-				visible = false;
-			}
 		}
 		
 		private function fireBullet():void {

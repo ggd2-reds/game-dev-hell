@@ -39,21 +39,7 @@ package
 		}
 		
 		public override function update():void {
-			
-			if (this.goLeft) {
-				velocity.x = -speed;
-			}
-			else {
-				velocity.x = speed;
-			}
-			
-			if (x <= 0) {
-				goLeft = false;
-			}
-			else if (x >= (FlxG.width - width)) {
-				goLeft = true;
-			}
-			
+			updatePosition();
 			updateBullets();
 			deleteBullets();
 			super.update();
@@ -68,6 +54,22 @@ package
 			if (health <= 0) {
 				super.kill();
 				visible = false;
+			}
+		}
+		
+		private function updatePosition():void {
+			if (this.goLeft) {
+				velocity.x = -speed;
+			}
+			else {
+				velocity.x = speed;
+			}
+			
+			if (x <= 0) {
+				goLeft = false;
+			}
+			else if (x >= (FlxG.width - width)) {
+				goLeft = true;
 			}
 		}
 		
