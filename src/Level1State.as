@@ -3,12 +3,12 @@ package
 	import org.flixel.*;
 	import mx.collections.ArrayList;
 
-	public class PlayState extends FlxState
+	public class Level1State extends FlxState
 	{
 		var player:Player;
 		var enemy:Enemy;
 		
-		override public function PlayState():void
+		override public function Level1State():void
 		{
 			/* initialization code */			
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);

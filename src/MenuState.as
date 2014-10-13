@@ -27,7 +27,7 @@ package
 		
 		private function onFade():void
 		{
-			FlxG.state = new PlayState();
+			FlxG.state = new Level1State();
 		}
 	}
 	
