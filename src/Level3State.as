@@ -3,15 +3,14 @@ package
 	import org.flixel.*;
 	import mx.collections.ArrayList;
 	
-	public class Level2State extends FlxState 
+	public class Level3State extends FlxState 
 	{
-	
 		private var player:Player;
-		private var enemy:Level2Enemy;
+		private var enemy:Level3Enemy;
 		
-		public function Level2State() 
+		public function Level3State() 
 		{
-			super();	
+			super();
 		}
 		
 		override public function create():void {
@@ -19,7 +18,7 @@ package
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);
 			this.add(player);
 			
-			this.enemy = new Level2Enemy(FlxG.width/2, 0);
+			this.enemy = new Level3Enemy(FlxG.width/2, 0);
 			this.add(enemy);
 		}
 		
@@ -34,13 +33,17 @@ package
 				FlxG.state = new GameOverState("YOU LOSE!");
 			}
 			
-			var enemyBullets:ArrayList = enemy.getBullets();
-			for (var j:Number = 0; j < enemyBullets.length; ++j) {
-				FlxU.overlap(player, WavyBullet(enemyBullets.getItemAt(j)));
+			/// \todo maybe make this one of those group thingys?
+			var enemyCircleBullets:ArrayList = enemy.getBullets();
+			for (var j:Number = 0; j < enemyCircleBullets.length; ++j) {
+				var bullets:ArrayList = enemyCircleBullets.getItemAt(j).getBullets();
+				for (var k:Number = 0; k < bullets.length; ++k) {
+					FlxU.overlap(player, Bullet(bullets.getItemAt(k)));
+				}
 			}
 
 			if (this.enemy.dead || FlxG.keys.pressed("L")) {
-				FlxG.state = new InbetweenState(3, new Level3State());
+				FlxG.state = new GameOverState("YOU WIN!");
 			}
 			
 			super.update();
