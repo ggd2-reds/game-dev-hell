@@ -35,7 +35,7 @@ package
 			}
 
 			if (this.enemy.dead) {
-				FlxG.state = new GameOverState("YOU WIN!");
+				FlxG.state = new InbetweenState(2, new Level2State());
 			}
 			
 			super.update();
