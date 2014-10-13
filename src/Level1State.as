@@ -8,18 +8,20 @@ package
 		private var player:Player;
 		private var enemy:Enemy;
 		
-		override public function Level1State():void
-		{
+		override public function Level1State():void {
+			super();
+		}
+		
+		override public function create():void {
 			/* initialization code */			
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);
 			this.add(player);
 			
 			this.enemy = new Enemy(FlxG.width/2, 0);
-			this.add(enemy);
+			this.add(enemy);			
 		}
 		
-		override public function update():void
-		{
+		override public function update():void {
 			var playerBullets:ArrayList = player.getBullets();
 			for (var i:Number = 0; i < playerBullets.length; ++i) {
 				FlxU.overlap(enemy, Bullet(playerBullets.getItemAt(i)));

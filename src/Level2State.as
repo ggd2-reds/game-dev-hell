@@ -11,8 +11,10 @@ package
 		
 		public function Level2State() 
 		{
-			super();
-			
+			super();	
+		}
+		
+		override public function create():void {
 			/* initialization code */			
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);
 			this.add(player);

@@ -8,10 +8,16 @@ package
 	public class InbetweenState extends FlxState 
 	{
 		private var nextState:FlxState;
+		private var levelNumber:Number;
 
-		public function InbetweenState(levelNumber:Number, nextState:FlxState) 
-		{
+		public function InbetweenState(levelNumber:Number, nextState:FlxState) {
 			super();
+			this.nextState = nextState;
+			this.levelNumber = levelNumber;
+		}
+		
+		override public function create():void {
+		
 			this.nextState = nextState;
 			
 			var levelText:FlxText = new FlxText(0, FlxG.height / 2 - 100, FlxG.width, 
@@ -25,8 +31,7 @@ package
 			this.add(enterText);
 		}
 		
-		override public function update():void
-		{
+		override public function update():void {
 			if (FlxG.keys.pressed("ENTER"))
 			{
 				FlxG.fade.start(0xee000000, 0.2, onFade);
@@ -34,8 +39,7 @@ package
 			super.update();
 		}
 		
-		private function onFade():void
-		{
+		private function onFade():void {
 			FlxG.state = this.nextState;
 		}
 	}

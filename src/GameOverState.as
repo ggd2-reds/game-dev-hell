@@ -4,8 +4,15 @@ package
 	
 	public class GameOverState extends FlxState
 	{
+		private var text:String;
+
 		override public function GameOverState(text:String):void 
 		{
+			super();
+			this.text = text;
+		}
+		
+		override public function create():void {
 			var gameOverText:FlxText = new FlxText(0, (FlxG.height / 2) - 200, FlxG.width, "Game Over." );
 			gameOverText.setFormat(null, 32, 0xeeeeeeee, "center");
 			
@@ -20,8 +27,7 @@ package
 			this.add(enterText);
 		}
 		
-		override public function update():void
-		{
+		override public function update():void {
 			if (FlxG.keys.pressed("ENTER"))
 			{
 				FlxG.fade.start(0xee000000, 0.2, onFade);
@@ -29,8 +35,7 @@ package
 			super.update();
 		}
 		
-		private function onFade():void
-		{
+		private function onFade():void {
 			FlxG.state = new MenuState();
 		}
 	}
