@@ -5,8 +5,8 @@ package
 
 	public class Level1State extends FlxState
 	{
-		var player:Player;
-		var enemy:Enemy;
+		private var player:Player;
+		private var enemy:Enemy;
 		
 		override public function Level1State():void
 		{
@@ -34,7 +34,7 @@ package
 				FlxU.overlap(player, Bullet(enemyBullets.getItemAt(j)));
 			}
 
-			if (this.enemy.dead) {
+			if (this.enemy.dead || FlxG.keys.pressed("L")) {
 				FlxG.state = new InbetweenState(2, new Level2State());
 			}
 			
