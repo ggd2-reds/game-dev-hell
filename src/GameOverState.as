@@ -30,12 +30,12 @@ package
 		override public function update():void {
 			if (FlxG.keys.pressed("SPACE"))
 			{
-				FlxG.fade.start(0xee000000, 0.2, onFade);
+				FlxG.fade.start(0xee000000, 0.2, goBackToMenu);
 			}
 			super.update();
 		}
 		
-		private function onFade():void {
+		private function goBackToMenu():void {
 			FlxG.state = new MenuState();
 		}
 	}

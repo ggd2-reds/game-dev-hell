@@ -11,7 +11,11 @@ package
 			text.setFormat( null, 32, 0xeeeeeeee, "center" );
 			this.add(text);
 			
-			text = new FlxText( 0, FlxG.height - 24, FlxG.width, "Press SPACE to start" );
+			text = new FlxText( 0, FlxG.height - 60, FlxG.width, "Press SPACE to start" );
+			text.setFormat( null, 16, 0xcccccccc, "center" );
+			this.add(text);
+			
+			text = new FlxText( 0, FlxG.height - 40, FlxG.width, "Press R to for rules" );
 			text.setFormat( null, 16, 0xcccccccc, "center" );
 			this.add(text);
 		}
@@ -20,12 +24,19 @@ package
 		{
 			if ( FlxG.keys.pressed("SPACE") )
 			{
-				FlxG.fade.start(0xee000000, .5, onFade);
+				FlxG.fade.start(0xee000000, .5, startGame);
+			}
+			else if (FlxG.keys.pressed("R")){
+				FlxG.fade.start(0xee000000, .5, goToInstructionState);
 			}
 			super.update();
 		}
 		
-		private function onFade():void
+		private function goToInstructionState():void {
+			FlxG.state = new InstructionState();
+		}
+		
+		private function startGame():void
 		{
 			FlxG.state = new Level1State();
 		}
