@@ -9,7 +9,7 @@ package
 		private var player:Player;
 		private var xSpeed:Number;
 		private var ySpeed:Number;
-		private const duration:Number = 5 * 1000;
+		private const duration:Number = 3 * 1000;
 		private var timer:Timer;
 		
 		public function Powerup(player:Player, xSpeed:Number, ySpeed:Number, 

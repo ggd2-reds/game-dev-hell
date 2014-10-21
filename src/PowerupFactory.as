@@ -9,8 +9,8 @@ package
 		private var state:FlxState;
 		private var player:Player;
 		private var powerupTimer:Timer;
-		private const powerUpCoolDownMin:Number = 10 * 1000;
-		private const powerUpCoolDownMax:Number = 20 * 1000;
+		private const powerUpCoolDownMin:Number = 7 * 1000;
+		private const powerUpCoolDownMax:Number = 14 * 1000;
 		
 		private function generatePowerup(e:Event):void {
 			this.powerupTimer.delay = Random.generate(powerUpCoolDownMin, powerUpCoolDownMax);
