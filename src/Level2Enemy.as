@@ -56,7 +56,7 @@ package
 		}
 		
 		public override function kill():void {
-			health -= 10;
+			health -= 7.5;
 			if (health <= 0) {
 				super.kill();
 				visible = false;

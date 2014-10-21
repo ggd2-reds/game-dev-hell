@@ -60,7 +60,7 @@ package
 		}
 		
 		public override function kill():void {
-			health -= 10;
+			health -= 5;
 			if (health <= 0) {
 				super.kill();
 				visible = false;
@@ -98,7 +98,7 @@ package
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
 				bulletDropSpeed = 2;
-				bulletExpandSpeed *= 1.5;
+				bulletExpandSpeed *= 1.2;
 			}
 			else if ((health <= 30) && (currentBulletCoolDown > bulletCoolDown - 300)) {
 				currentBulletCoolDown = bulletCoolDown - 300;
@@ -106,7 +106,7 @@ package
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
 				bulletDropSpeed = 1;
-				bulletExpandSpeed *= 1.5;
+				bulletExpandSpeed *= 0.75;
 			}
 		}
 		

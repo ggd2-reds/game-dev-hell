@@ -18,7 +18,7 @@ package
 		private const maxBullets:Number = 3;
 		private var bullets:ArrayList;
 		private var canFire:Boolean;
-		private var bulletCoolDown:Number = 800;		
+		private var bulletCoolDown:Number = 400;		
 		private var bulletCoolDownTimer:Timer;
 		
 		private function bulletCoodDownTimerExpired(e:Event):void {
@@ -52,7 +52,7 @@ package
 		}
 		
 		public override function kill():void {
-			health -= 50;
+			health -= 35;
 			if (health <= 0) {
 				super.kill();
 				visible = false;
