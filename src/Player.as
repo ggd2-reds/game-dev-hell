@@ -15,7 +15,7 @@ package
 		//bullet vars
 		[Embed(source = "../assets/PlayerBullet.png")]
 		public var bulletImage : Class;
-		private const maxBullets:Number = 3;
+		private var maxBullets:Number = 3;
 		private var bullets:ArrayList;
 		private var canFire:Boolean;
 		private var bulletCoolDown:Number = 400;		
@@ -111,7 +111,7 @@ package
 		}
 		
 		private function fireBullet():void {
-			if ((bullets.length < 3) && canFire) {
+			if ((bullets.length < this.maxBullets) && canFire) {
 				canFire = false;
 
 				var bullet:Bullet = new Bullet(x + width/4, y, bulletImage, true);
@@ -130,6 +130,18 @@ package
 					--i;
 				}
 			}
+		}
+		
+		public function activateRapidFire():void {
+			this.bulletCoolDown = 100;
+			this.bulletCoolDownTimer.delay = this.bulletCoolDown;
+			this.maxBullets = 10;
+		}
+		
+		public function stopRapidFire():void {
+			this.bulletCoolDown = 400;
+			this.bulletCoolDownTimer.delay = this.bulletCoolDown;
+			this.maxBullets = 3;
 		}
 	}
 	

@@ -5,9 +5,9 @@ package
 	
 	public class Level2State extends FlxState 
 	{
-	
 		private var player:Player;
 		private var enemy:Level2Enemy;
+		private var powerUpFactory:PowerupFactory;
 		
 		public function Level2State() 
 		{
@@ -21,6 +21,8 @@ package
 			
 			this.enemy = new Level2Enemy(FlxG.width/2, 0);
 			this.add(enemy);
+			
+			this.powerUpFactory = new PowerupFactory(this, player);
 		}
 		
 		override public function update():void

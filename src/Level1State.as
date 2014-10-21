@@ -7,6 +7,7 @@ package
 	{
 		private var player:Player;
 		private var enemy:Enemy;
+		private var powerUpFactory:PowerupFactory;
 		
 		override public function Level1State():void {
 			super();
@@ -18,7 +19,9 @@ package
 			this.add(player);
 			
 			this.enemy = new Enemy(FlxG.width/2, 0);
-			this.add(enemy);			
+			this.add(enemy);
+			
+			this.powerUpFactory = new PowerupFactory(this, player);
 		}
 		
 		override public function update():void {
