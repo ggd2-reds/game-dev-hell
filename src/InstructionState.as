@@ -13,14 +13,15 @@ package
 		override public function create():void {
 			var text:String =
 				"Rules:\n" +
-				"\tDefeat the enemy\n" +
-				"\tYou have 2 hits before you die\n" +
-				"\tThe enemy has 10 hits before he dies\n" +
-				"\tThere are currently 3 levels\n"+
+				"\t-Defeat the enemy\n" +
+				"\t-You have 2 hits before you die\n" +
+				"\t-The enemy has 10 hits before he dies\n" +
+				"\t-There are currently 3 levels\n"+
 				"Controls:\n" +
-				"\tArrow Keys - Move Up/Down/Left/Right\n" +
-				"\tSpace - Shoot\n" +
-				"\tL - Skip a level\n" + 
+				"\t-Arrow Keys or WASD - Move Up/Down/Left/Right\n" +
+				"\t\t-You can move in all 8 directions\n" +
+				"\t-Space - Shoot\n" +
+				"\t-L - Skip a level\n" + 
 				"\n" +
 				"Press SPACE to go back";
 			var instructionText:FlxText = new FlxText(50, 50, FlxG.width,

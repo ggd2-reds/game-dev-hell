@@ -65,16 +65,32 @@ package
 			
 			
 			// Set the speed
-			if (FlxG.keys.LEFT) {
+			if ((FlxG.keys.LEFT && FlxG.keys.UP) || (FlxG.keys.A && FlxG.keys.W)) {
 				velocity.x = -speed;
-			}
-			else if (FlxG.keys.RIGHT) {
-				velocity.x = speed;
-			}
-			else if (FlxG.keys.UP) {
 				velocity.y = -speed;
 			}
-			else if (FlxG.keys.DOWN) {
+			else if ((FlxG.keys.RIGHT && FlxG.keys.UP) || (FlxG.keys.D && FlxG.keys.W)) {
+				velocity.x = speed;
+				velocity.y = -speed;
+			}
+			else if ((FlxG.keys.LEFT && FlxG.keys.DOWN) || (FlxG.keys.A && FlxG.keys.S)) {
+				velocity.x = -speed;
+				velocity.y = speed;
+			}
+			else if ((FlxG.keys.RIGHT && FlxG.keys.DOWN) || (FlxG.keys.D && FlxG.keys.S) ) {
+				velocity.x = speed;
+				velocity.y = speed;
+			}
+			else if (FlxG.keys.LEFT || FlxG.keys.A) {
+				velocity.x = -speed;
+			}
+			else if (FlxG.keys.RIGHT || FlxG.keys.D) {
+				velocity.x = speed;
+			}
+			else if (FlxG.keys.UP || FlxG.keys.W) {
+				velocity.y = -speed;
+			}
+			else if (FlxG.keys.DOWN || FlxG.keys.S) {
 				velocity.y = speed;
 			}
 			
