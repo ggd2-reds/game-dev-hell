@@ -11,6 +11,7 @@ package
 		private var powerUpFactory:PowerupFactory;
 		private var playerHealthText:FlxText;
 		private var enemyHealthText:FlxText;
+		private var powerupText:FlxText;
 		
 		public function BaseLevelState() 
 		{
@@ -45,6 +46,10 @@ package
 			this.enemyHealthText = new FlxText(0, 0, 100, enemy.getName() + "'s Health:\n" + enemy.health.toString());
 			this.enemyHealthText.setFormat(null, 9, 0xeeeeee, "left");
 			this.add(enemyHealthText);
+			
+			this.powerupText = new FlxText(0, FlxG.height - 50, 100, "Power up:\nNone");
+			this.powerupText.setFormat(null, 9, 0xeeeeee, "left");
+			this.add(powerupText);
 		}
 		
 		override public function update():void {
@@ -70,6 +75,10 @@ package
 			}
 			
 			super.update();
+		}
+		
+		public function setPowerupText(s:String):void {
+			this.powerupText.text = "Power up:\n" + s;
 		}
 	}
 

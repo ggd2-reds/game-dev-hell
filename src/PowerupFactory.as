@@ -6,7 +6,7 @@ package
 		import flash.utils.Timer;
 		import flash.events.*;
 		
-		private var state:FlxState;
+		private var state:BaseLevelState;
 		private var player:Player;
 		private var powerupTimer:Timer;
 		private const powerUpCoolDownMin:int = 7 * 1000;
@@ -33,20 +33,20 @@ package
 			
 			var powerup:int= Random.generate(0, 3);
 			if (powerup == 0) {
-				this.state.add(new RapidFirePowerUp(player, xSpeed, ySpeed, x, y));
+				this.state.add(new RapidFirePowerUp(player, xSpeed, ySpeed, state, x, y));
 			}
 			else if (powerup == 1) {
-				this.state.add(new InvinciblePowerup(player, xSpeed, ySpeed, x, y));
+				this.state.add(new InvinciblePowerup(player, xSpeed, ySpeed, state, x, y));
 			}
 			else if (powerup == 2) {
-				this.state.add(new HealthPowerup(player, xSpeed, ySpeed, x, y));
+				this.state.add(new HealthPowerup(player, xSpeed, ySpeed, state, x, y));
 			}
 			else {
-				this.state.add(new WavyBulletPowerup(player, xSpeed, ySpeed, x, y));
+				this.state.add(new WavyBulletPowerup(player, xSpeed, ySpeed, state, x, y));
 			}
 		}
 
-		public function PowerupFactory(state:FlxState, player:Player) 
+		public function PowerupFactory(state:BaseLevelState, player:Player) 
 		{
 			this.state = state;
 			this.player = player;
