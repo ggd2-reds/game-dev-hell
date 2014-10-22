@@ -2,7 +2,7 @@ package
 {
 	public class RapidFirePowerUp extends Powerup 
 	{
-		[Embed(source = "../assets/RapidFirePowerUp.png")]
+		[Embed(source = "../assets/RapidFirePowerup.png")]
 		private var image:Class;
 
 		public function RapidFirePowerUp(player:Player, xSpeed:Number, ySpeed:Number, X:Number=0, Y:Number=0) 

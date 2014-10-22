@@ -14,7 +14,6 @@ package
 		
 		private function generatePowerup(e:Event):void {
 			this.powerupTimer.delay = Random.generate(powerUpCoolDownMin, powerUpCoolDownMax);
-			var powerup:Number = Random.generate(0, 1);
 			var direction:Number = Random.generate(0, 1);
 			
 			// Set the X values
@@ -32,8 +31,12 @@ package
 			var y:Number = Random.generate(0, FlxG.height / 2);
 			var ySpeed:Number = Random.generate(2, 5);
 			
+			var powerup:int= Random.generate(0, 2);
 			if (powerup == 0) {
 				this.state.add(new RapidFirePowerUp(player, xSpeed, ySpeed, x, y));
+			}
+			else if (powerup == 1) {
+				this.state.add(new InvinciblePowerup(player, xSpeed, ySpeed, x, y));
 			}
 			else {
 				this.state.add(new WavyBulletPowerup(player, xSpeed, ySpeed, x, y));

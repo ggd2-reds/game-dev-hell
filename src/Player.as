@@ -12,7 +12,9 @@ package
 		
 		private const speed:Number = 400;
 		
+		//Powerup vars
 		private var isWavyBullet:Boolean;
+		private var isImmune:Boolean;
 		
 		//bullet vars
 		[Embed(source = "../assets/PlayerBullet.png")]
@@ -32,6 +34,8 @@ package
 			this.bullets = new ArrayList();
 			this.health = 100;
 			this.isWavyBullet = false;
+			this.isImmune = false;
+			
 			bulletCoolDownTimer = new Timer(bulletCoolDown, 0);
 			bulletCoolDownTimer.addEventListener(TimerEvent.TIMER, bulletCoodDownTimerExpired);
 			bulletCoolDownTimer.start();
@@ -55,10 +59,12 @@ package
 		}
 		
 		public override function kill():void {
-			health -= 35;
-			if (health <= 0) {
-				super.kill();
-				visible = false;
+			if (!isImmune) {
+				health -= 35;
+				if (health <= 0) {
+					super.kill();
+					visible = false;
+				}
 			}
 		}
 		
@@ -155,6 +161,10 @@ package
 		
 		public function setWavyBullet(turnOn:Boolean):void {
 			this.isWavyBullet = turnOn;
+		}
+		
+		public function setImmune(turnOn:Boolean):void {
+			this.isImmune = turnOn;
 		}
 	}
 }
