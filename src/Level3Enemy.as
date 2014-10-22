@@ -2,6 +2,8 @@ package
 {
 	public class Level3Enemy extends BaseEnemy 
 	{
+		import org.flixel.*;
+		import mx.collections.ArrayList;
 		
 		[Embed(source="../assets/Enemy.png")]
 		public var image : Class;
@@ -51,6 +53,17 @@ package
 				bulletDropSpeed = 1;
 				bulletExpandSpeed *= 0.75;
 			}
+		}
+		
+		public override function getBullets(): ArrayList {
+			var circleBullets:ArrayList = new ArrayList();
+			for (var i:int = 0; i < bullets.length; ++i) {
+				var b:ArrayList = bullets.getItemAt(i).getBullets();
+				for (var j:int = 0; j < b.length; ++j) {
+					circleBullets.addItem(b.getItemAt(j));
+				}
+			}
+			return circleBullets;
 		}
 		
 	}
