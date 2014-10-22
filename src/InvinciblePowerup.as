@@ -1,9 +1,5 @@
 package  
 {
-	/**
-	 * ...
-	 * @author Seth Hendrick
-	 */
 	public class InvinciblePowerup extends Powerup 
 	{
 		[Embed(source = "../assets/invinciblePowerup.png")]

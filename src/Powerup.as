@@ -24,12 +24,14 @@ package
 		}
 		
 		public override function update():void {
-			this.x += xSpeed;
-			this.y += ySpeed;
-			if (this.y > FlxG.height + this.height) {
-				super.kill();
+			if (this.visible) { // Only update if the thing is visible.
+				this.x += xSpeed;
+				this.y += ySpeed;
+				if (this.y > FlxG.height + this.height) {
+					super.kill();
+				}
+				FlxU.overlap(this.player, this, powerUp);
 			}
-			FlxU.overlap(this.player, this, powerUp);
 		}
 		
 		private function powerUp(object1:FlxObject,object2:FlxObject):void {

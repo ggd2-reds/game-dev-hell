@@ -9,6 +9,7 @@ package
 		protected var player:Player;
 		protected var enemy:BaseEnemy;
 		private var powerUpFactory:PowerupFactory;
+		private var playerHealthText:FlxText;
 		
 		public function BaseLevelState() 
 		{
@@ -35,9 +36,14 @@ package
 			this.add(enemy);
 			
 			this.powerUpFactory = new PowerupFactory(this, player);
+			
+			this.playerHealthText = new FlxText(0, FlxG.height - 20, 20, player.health.toString());
+			this.add(playerHealthText);
 		}
 		
 		override public function update():void {
+			this.playerHealthText.text = player.health.toString();
+			
 			var playerBullets:ArrayList = player.getBullets();
 			for (var i:Number = 0; i < playerBullets.length; ++i) {
 				FlxU.overlap(enemy, BulletBase(playerBullets.getItemAt(i)));

@@ -10,7 +10,9 @@ package
 		[Embed(source="../assets/Player.png")]
 		public var image : Class;
 		
-		private const speed:Number = 400;
+		private const speed:int = 400;
+		
+		private const damangeCost:int = 35;
 		
 		//Powerup vars
 		private var isWavyBullet:Boolean;
@@ -19,10 +21,10 @@ package
 		//bullet vars
 		[Embed(source = "../assets/PlayerBullet.png")]
 		public var bulletImage : Class;
-		private var maxBullets:Number = 3;
+		private var maxBullets:int = 3;
 		private var bullets:ArrayList;
 		private var canFire:Boolean;
-		private var bulletCoolDown:Number = 400;		
+		private var bulletCoolDown:int = 400;		
 		private var bulletCoolDownTimer:Timer;
 		
 		private function bulletCoodDownTimerExpired(e:Event):void {
@@ -60,7 +62,7 @@ package
 		
 		public override function kill():void {
 			if (!isImmune) {
-				health -= 35;
+				this.health = this.health - damangeCost;
 				if (health <= 0) {
 					super.kill();
 					visible = false;
@@ -165,6 +167,10 @@ package
 		
 		public function setImmune(turnOn:Boolean):void {
 			this.isImmune = turnOn;
+		}
+		
+		public function heal():void {
+			this.health = this.health + damangeCost;
 		}
 	}
 }
