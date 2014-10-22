@@ -6,7 +6,7 @@ package
 	public class Level1State extends FlxState
 	{
 		private var player:Player;
-		private var enemy:Enemy;
+		private var enemy:Level1Enemy;
 		private var powerUpFactory:PowerupFactory;
 		
 		override public function Level1State():void {
@@ -18,7 +18,7 @@ package
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);
 			this.add(player);
 			
-			this.enemy = new Enemy(FlxG.width/2, 0);
+			this.enemy = new Level1Enemy(FlxG.width/2, 0);
 			this.add(enemy);
 			
 			this.powerUpFactory = new PowerupFactory(this, player);

@@ -1,12 +1,8 @@
 package 
 {
-	import flash.events.TimerEvent;
 	import org.flixel.*;
-	import mx.collections.ArrayList;
-	import flash.utils.Timer;
-	import flash.events.*;
 
-	public class Enemy extends BaseEnemy
+	public class Level1Enemy extends BaseEnemy
 	{
 		[Embed(source="../assets/Enemy.png")]
 		private var image : Class;
@@ -15,7 +11,7 @@ package
 		[Embed(source = "../assets/EnemyBullet.png")]
 		private var bulletImage : Class;
 		
-		public function Enemy(X:Number, Y:Number) {
+		public function Level1Enemy(X:Number, Y:Number) {
 			super (X, Y, this.image, 10);
 		}
 		
