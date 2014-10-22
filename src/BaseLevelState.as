@@ -1,5 +1,6 @@
 package  
 {
+	import Background;
 	import org.flixel.*;
 	import mx.collections.ArrayList;
 	
@@ -25,7 +26,8 @@ package
 		}
 		
 		override public function create():void {
-			/* initialization code */			
+			/* initialization code */		
+			this.add(new Background);
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);
 			this.add(player);
 			
