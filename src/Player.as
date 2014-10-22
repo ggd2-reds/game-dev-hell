@@ -12,6 +12,8 @@ package
 		
 		private const speed:Number = 400;
 		
+		private var isWavyBullet:Boolean;
+		
 		//bullet vars
 		[Embed(source = "../assets/PlayerBullet.png")]
 		public var bulletImage : Class;
@@ -29,6 +31,7 @@ package
 			super(X, Y, this.image);
 			this.bullets = new ArrayList();
 			this.health = 100;
+			this.isWavyBullet = false;
 			bulletCoolDownTimer = new Timer(bulletCoolDown, 0);
 			bulletCoolDownTimer.addEventListener(TimerEvent.TIMER, bulletCoodDownTimerExpired);
 			bulletCoolDownTimer.start();
@@ -114,7 +117,13 @@ package
 			if ((bullets.length < this.maxBullets) && canFire) {
 				canFire = false;
 
-				var bullet:Bullet = new Bullet(x + width/4, y, bulletImage, true);
+				var bullet:BulletBase; 
+				if (isWavyBullet) {
+					bullet = new WavyBullet(x + width, y, bulletImage, true);
+				}
+				else {
+					bullet = new Bullet(x + width / 4, y, bulletImage, true);
+				}
 				FlxG.state.add(bullet);
 				bullets.addItem(bullet);
 				
@@ -143,6 +152,9 @@ package
 			this.bulletCoolDownTimer.delay = this.bulletCoolDown;
 			this.maxBullets = 3;
 		}
+		
+		public function setWavyBullet(turnOn:Boolean):void {
+			this.isWavyBullet = turnOn;
+		}
 	}
-	
 }

@@ -10,7 +10,7 @@ package
 		private var player:Player;
 		private var powerupTimer:Timer;
 		private const powerUpCoolDownMin:Number = 7 * 1000;
-		private const powerUpCoolDownMax:Number = 14 * 1000;
+		private const powerUpCoolDownMax:Number = 10 * 1000;
 		
 		private function generatePowerup(e:Event):void {
 			this.powerupTimer.delay = Random.generate(powerUpCoolDownMin, powerUpCoolDownMax);
@@ -36,7 +36,7 @@ package
 				this.state.add(new RapidFirePowerUp(player, xSpeed, ySpeed, x, y));
 			}
 			else {
-				this.state.add(new RapidFirePowerUp(player, xSpeed, ySpeed, x, y));
+				this.state.add(new WavyBulletPowerup(player, xSpeed, ySpeed, x, y));
 			}
 		}
 

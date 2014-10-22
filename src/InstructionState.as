@@ -15,7 +15,8 @@ package
 				"Rules:\n" +
 				"\t-Defeat the enemy\n" +
 				"\t-You have 3 hits before you die\n" +
-				"\t-There are currently 3 levels\n"+
+				"\t-There are currently 3 levels\n" +
+				"\t-Powerups appear every 7-10 seconds.  Use them wisely\n" +
 				"Controls:\n" +
 				"\t-Arrow Keys or WASD - Move Up/Down/Left/Right\n" +
 				"\t\t-You can move in all 8 directions\n" +
