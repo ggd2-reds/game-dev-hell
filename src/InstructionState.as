@@ -14,8 +14,7 @@ package
 			var text:String =
 				"Rules:\n" +
 				"\t-Defeat the enemy\n" +
-				"\t-You have 2 hits before you die\n" +
-				"\t-The enemy has 10 hits before he dies\n" +
+				"\t-You have 3 hits before you die\n" +
 				"\t-There are currently 3 levels\n"+
 				"Controls:\n" +
 				"\t-Arrow Keys or WASD - Move Up/Down/Left/Right\n" +
