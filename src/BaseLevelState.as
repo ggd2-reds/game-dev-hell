@@ -10,6 +10,7 @@ package
 		protected var enemy:BaseEnemy;
 		private var powerUpFactory:PowerupFactory;
 		private var playerHealthText:FlxText;
+		private var enemyHealthText:FlxText;
 		
 		public function BaseLevelState() 
 		{
@@ -30,19 +31,25 @@ package
 			/* initialization code */		
 			this.add(new Background);
 			this.player = new Player(FlxG.width/2, FlxG.height - 100);
-			this.add(player);
-			
 			this.enemy = createEnemy();
+			
+			this.add(player);
 			this.add(enemy);
 			
 			this.powerUpFactory = new PowerupFactory(this, player);
 			
-			this.playerHealthText = new FlxText(0, FlxG.height - 20, 20, player.health.toString());
+			this.playerHealthText = new FlxText(FlxG.width - 100, FlxG.height - 50, 100, "Player Health: \n" + player.health.toString());
+			this.playerHealthText.setFormat(null, 9, 0xeeeeee, "left");
 			this.add(playerHealthText);
+			
+			this.enemyHealthText = new FlxText(0, 0, 100, enemy.getName() + "'s Health:\n" + enemy.health.toString());
+			this.enemyHealthText.setFormat(null, 9, 0xeeeeee, "left");
+			this.add(enemyHealthText);
 		}
 		
 		override public function update():void {
-			this.playerHealthText.text = player.health.toString();
+			this.playerHealthText.text = "Player Health: \n" + player.health.toString();
+			this.enemyHealthText.text = enemy.getName() + "'s Health:\n" + enemy.health.toString();
 			
 			var playerBullets:ArrayList = player.getBullets();
 			for (var i:Number = 0; i < playerBullets.length; ++i) {

@@ -12,7 +12,7 @@ package
 		private var bulletImage : Class;
 		
 		public function Level1Enemy(X:Number, Y:Number) {
-			super (X, Y, this.image, 10);
+			super (X, Y, this.image, 10, "Metacritic");
 		}
 		
 		public override function update():void {

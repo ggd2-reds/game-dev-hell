@@ -15,7 +15,7 @@ package
 		private var bulletExpandSpeed:Number;
 		
 		public function Level3Enemy(X:Number=0, Y:Number=0) {
-			super(X, Y, this.image, 5);
+			super(X, Y, this.image, 5, "Metacritic");
 			this.bulletDropSpeed = 10; // Value controls how fast the bullets fall
 			this.bulletExpandSpeed = 2; // Value that controls how fast the bullets expand and rotate			
 		}

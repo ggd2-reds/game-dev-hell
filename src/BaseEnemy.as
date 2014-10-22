@@ -22,11 +22,13 @@ package
 		protected var bulletCoolDownTimer:Timer;
 		protected var bulletSpeed:Number;
 		
+		protected var enemyName:String;
+		
 		private function bulletCoodDownTimerExpired(e:Event):void {
 			this.canFire = true;
 		}
 		
-		public function BaseEnemy(X:Number, Y:Number, enemyGraphic:Class, damageAmount:int) 
+		public function BaseEnemy(X:Number, Y:Number, enemyGraphic:Class, damageAmount:int, enemyName:String) 
 		{
 			super(X, Y, enemyGraphic);
 			
@@ -35,6 +37,7 @@ package
 			this.health = 100;
 			this.bulletSpeed = 450;
 			this.damangeAmount = damageAmount;
+			this.enemyName = enemyName;
 			
 			this.currentBulletCoolDown = bulletCoolDown;
 			
@@ -89,6 +92,10 @@ package
 		
 		public function getBullets(): ArrayList {
 			return this.bullets;
+		}
+		
+		public function getName():String {
+			return enemyName;
 		}
 		
 		public override function kill():void {

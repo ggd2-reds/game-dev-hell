@@ -10,7 +10,7 @@ package
 		private var bulletImage : Class;
 		
 		public function Level2Enemy(X:Number, Y:Number) {
-			super (X, Y, this.image, 7.5);
+			super (X, Y, this.image, 7.5, "Metacritic");
 		}
 
 		protected override function createBullet(x:Number, y:Number):BulletBase {
