@@ -18,8 +18,8 @@ package
 
 		protected override function createBullets(x:Number, y:Number):ArrayList {
 			var bullets:ArrayList = new ArrayList();
-			bullets.addItem(new WavyBullet(this.x + (3 * width / 4), y, this.bulletImage, false, bulletSpeed));
-			bullets.addItem(new WavyBullet(this.x + (width / 4), y, this.bulletImage, false, bulletSpeed));
+			bullets.addItem(new WavyBullet(this.x + (3 * width / 4) + 20, y, this.bulletImage, false, bulletSpeed));
+			bullets.addItem(new WavyBullet(this.x + (width / 4) - 20, y, this.bulletImage, false, bulletSpeed));
 			return bullets;
 		}
 		
@@ -38,21 +38,21 @@ package
 				bulletCoolDownTimer.delay = currentBulletCoolDown;
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
-				bulletSpeed += 200;
+				bulletSpeed += 25;
 			}
 			else if ((health <= 50) && (currentBulletCoolDown > bulletCoolDown - 200)) {
 				currentBulletCoolDown = bulletCoolDown - 200;
 				bulletCoolDownTimer.delay = currentBulletCoolDown;
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
-				bulletSpeed += 100;
+				bulletSpeed += 10;
 			}
 			else if ((health <= 30) && (currentBulletCoolDown > bulletCoolDown - 300)) {
 				currentBulletCoolDown = bulletCoolDown - 300;
 				bulletCoolDownTimer.delay = currentBulletCoolDown;
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
-				bulletSpeed += 100;
+				bulletSpeed += 20;
 			}
 		}		
 	}
