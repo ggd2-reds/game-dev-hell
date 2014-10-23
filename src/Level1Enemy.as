@@ -1,20 +1,26 @@
-package  
+package 
 {
-	public class Level2Enemy extends BaseEnemy
+	import org.flixel.*;
+
+	public class Level1Enemy extends BaseEnemy
 	{
 		[Embed(source="../assets/Enemy.png")]
-		public var image : Class;
-
+		private var image : Class;
+				
 		//bullet vars
-		[Embed(source = "../assets/Level2EnemyBullet.png")]
+		[Embed(source = "../assets/EnemyBullet.png")]
 		private var bulletImage : Class;
 		
-		public function Level2Enemy(X:Number, Y:Number) {
-			super (X, Y, this.image, 7.5, "Metacritic");
+		public function Level1Enemy(X:Number, Y:Number) {
+			super (X, Y, this.image, 10, "Metacritic");
 		}
-
+		
+		public override function update():void {
+			super.update();
+		}
+		
 		protected override function createBullet(x:Number, y:Number):BulletBase {
-			return new WavyBullet(x, y, this.bulletImage, false, bulletSpeed);
+			return new Bullet(x, y, this.bulletImage, false, bulletSpeed);
 		}
 		
 		protected override function checkHealth():void {
@@ -39,7 +45,7 @@ package
 				bulletCoolDownTimer.start();
 				bulletSpeed += 100;
 			}
-		}		
+		}
 	}
-
+	
 }

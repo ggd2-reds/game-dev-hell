@@ -3,11 +3,8 @@ package
 	import org.flixel.*;
 	import mx.collections.ArrayList;
 	
-	public class CircleBullet extends FlxObject 
+	public class CircleBullet extends BulletBase 
 	{
-		private var speed:Number;
-		private var directionUp:Boolean;
-		private var bullets:ArrayList;
 		private var radius:Number;
 		private var theta:Number;
 		private var delta:Number;
@@ -15,10 +12,9 @@ package
 		
 		public function CircleBullet(X:Number, Y:Number, image:Class, directionUp:Boolean, numBullets:Number, expandSpeed:Number, speed:Number=10)
 		{
-			super(X, Y);
-			this.speed = speed;
-			this.directionUp = directionUp;
+			super (X, Y, null, directionUp, speed, true);
 			this.expandSpeed = expandSpeed;
+
 			this.bullets = new ArrayList();
 			for (var i:Number = 0; i < numBullets; ++i) {
 				var bullet:Bullet = new Bullet(X, Y, image, directionUp, 0);
@@ -29,8 +25,10 @@ package
 				this.theta = 0;
 				this.delta = 2 * Math.PI / numBullets;
 			}
+			
+			this.visible = false;
 		}
-		
+
 		public override function update():void {
 			var vel:Number;
 			
@@ -54,17 +52,8 @@ package
 				super.kill();
 			}
 			
-			super.update();
-		}
-		
-		public function getBullets(): ArrayList {
-			return this.bullets;
-		}
-		
-		public function get Speed():Number {
-			return this.speed;
-		}
-		
+			superUpdate();
+		}	
 	}
 
 }
