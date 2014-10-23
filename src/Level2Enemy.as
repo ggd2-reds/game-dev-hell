@@ -45,7 +45,7 @@ package
 				bulletCoolDownTimer.delay = currentBulletCoolDown;
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
-				bulletSpeed += 10;
+				bulletSpeed += 25;
 			}
 			else if ((health <= 30) && (currentBulletCoolDown > bulletCoolDown - 300)) {
 				currentBulletCoolDown = bulletCoolDown - 300;
