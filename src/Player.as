@@ -12,7 +12,7 @@ package
 		
 		private const speed:int = 400;
 		
-		private const damangeCost:int = 35;
+		private const damangeCost:int = 20;
 		
 		//Powerup vars
 		private var isWavyBullet:Boolean;

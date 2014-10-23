@@ -14,7 +14,7 @@ package
 			var text:String =
 				"Rules:\n" +
 				"\t-Defeat the enemy\n" +
-				"\t-You have 3 hits before you die\n" +
+				"\t-You have 5 hits before you die\n" +
 				"\t-There are currently 3 levels\n" +
 				"\t-Powerups appear every 7-10 seconds.\n" +
 				"\t\tThey last for three seconds.\n" +
