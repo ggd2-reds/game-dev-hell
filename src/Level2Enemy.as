@@ -1,8 +1,11 @@
 package  
 {
+	import mx.collections.ArrayList;
+	import org.flixel.*;
+	
 	public class Level2Enemy extends BaseEnemy
 	{
-		[Embed(source="../assets/Enemy.png")]
+		[Embed(source="../assets/Enemy2.png")]
 		public var image : Class;
 
 		//bullet vars
@@ -10,11 +13,23 @@ package
 		private var bulletImage : Class;
 		
 		public function Level2Enemy(X:Number, Y:Number) {
-			super (X, Y, this.image, 7.5, "Metacritic");
+			super (X, Y, this.image, 7.5, "Cliffy B");
 		}
 
-		protected override function createBullet(x:Number, y:Number):BulletBase {
-			return new WavyBullet(x, y, this.bulletImage, false, bulletSpeed);
+		protected override function createBullets(x:Number, y:Number):ArrayList {
+			var bullets:ArrayList = new ArrayList();
+			bullets.addItem(new WavyBullet(this.x + (3 * width / 4), y, this.bulletImage, false, bulletSpeed));
+			bullets.addItem(new WavyBullet(this.x + (width / 4), y, this.bulletImage, false, bulletSpeed));
+			return bullets;
+		}
+		
+		protected override function changeDirection():void {
+			if (x <= -20) {
+				goLeft = false;
+			}
+			else if (x >= (FlxG.width - width + 20)) {
+				goLeft = true;
+			}
 		}
 		
 		protected override function checkHealth():void {

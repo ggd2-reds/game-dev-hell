@@ -10,7 +10,7 @@ package
 	{
 		private const speed:Number = 200;
 		
-		private var goLeft:Boolean;
+		protected var goLeft:Boolean;
 		
 		private var damangeAmount:int;
 		
@@ -50,6 +50,15 @@ package
 			// OVERRIDE THIS IN BASE CLASS!!!!
 		}
 		
+		protected function changeDirection():void {
+			if (x <= 0) {
+				goLeft = false;
+			}
+			else if (x >= (FlxG.width - width)) {
+				goLeft = true;
+			}
+		}
+		
 		private function updatePosition():void {
 			if (this.goLeft) {
 				velocity.x = -speed;
@@ -58,15 +67,10 @@ package
 				velocity.x = speed;
 			}
 			
-			if (x <= 0) {
-				goLeft = false;
-			}
-			else if (x >= (FlxG.width - width)) {
-				goLeft = true;
-			}
+			changeDirection();
 		}
 
-		protected function createBullet(x:Number, y:Number):BulletBase {
+		protected function createBullets(x:Number, y:Number):ArrayList {
 			// OVERRIDE THIS IN BASE CLASS!!!
 			return null;
 		}
@@ -75,9 +79,11 @@ package
 			if (canFire) {
 				this.canFire = false;
 
-				var bullet:BulletBase = createBullet(x + width / 4, y + height);
-				FlxG.state.add(bullet);
-				bullets.addItem(bullet);				
+				var bullet:ArrayList = createBullets(x + width / 4, y + height);
+				for (var i:int; i < bullet.length; ++i) {
+					FlxG.state.add(BulletBase(bullet.getItemAt(i)));
+					bullets.addItem(bullet.getItemAt(i));
+				}
 			}
 		}
 		

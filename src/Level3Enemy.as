@@ -5,7 +5,7 @@ package
 		import org.flixel.*;
 		import mx.collections.ArrayList;
 		
-		[Embed(source="../assets/Enemy.png")]
+		[Embed(source="../assets/Enemy3.png")]
 		public var image : Class;
 		
 		//bullet vars
@@ -15,7 +15,7 @@ package
 		private var bulletExpandSpeed:Number;
 		
 		public function Level3Enemy(X:Number=0, Y:Number=0) {
-			super(X, Y, this.image, 5, "Metacritic");
+			super(X, Y - 50, this.image, 5, "God");
 			this.bulletDropSpeed = 10; // Value controls how fast the bullets fall
 			this.bulletExpandSpeed = 2; // Value that controls how fast the bullets expand and rotate			
 		}
@@ -24,8 +24,10 @@ package
 			super.update();
 		}
 		
-		protected override function createBullet(x:Number, y:Number):BulletBase {
-			return new CircleBullet(x, y, bulletImage, false, 5, bulletExpandSpeed, bulletDropSpeed);
+		protected override function createBullets(x:Number, y:Number):ArrayList {
+			var bullets:ArrayList = new ArrayList();
+			bullets.addItem(new CircleBullet(x + 40, y, bulletImage, false, 5, bulletExpandSpeed, bulletDropSpeed));
+			return bullets;
 		}
 		
 		protected override function checkHealth():void {

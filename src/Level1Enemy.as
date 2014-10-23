@@ -1,6 +1,7 @@
 package 
 {
 	import org.flixel.*;
+	import mx.collections.ArrayList;
 
 	public class Level1Enemy extends BaseEnemy
 	{
@@ -19,8 +20,10 @@ package
 			super.update();
 		}
 		
-		protected override function createBullet(x:Number, y:Number):BulletBase {
-			return new Bullet(x, y, this.bulletImage, false, bulletSpeed);
+		protected override function createBullets(x:Number, y:Number):ArrayList {
+			var bullets:ArrayList = new ArrayList();
+			bullets.addItem(new Bullet(x, y, this.bulletImage, false, bulletSpeed));
+			return bullets;
 		}
 		
 		protected override function checkHealth():void {
