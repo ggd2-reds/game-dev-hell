@@ -39,16 +39,16 @@ package
 			
 			this.powerUpFactory = new PowerupFactory(this, player);
 			
-			this.playerHealthText = new FlxText(FlxG.width - 100, FlxG.height - 50, 100, "Player Health: \n" + player.health.toString());
-			this.playerHealthText.setFormat(null, 9, 0xeeeeee, "left");
+			this.playerHealthText = new FlxText(FlxG.width - 130, FlxG.height - 50, 120, "Player Health: \n" + player.health.toString());
+			this.playerHealthText.setFormat(null, 12, 0xeeeeee, "left");
 			this.add(playerHealthText);
 			
-			this.enemyHealthText = new FlxText(0, 0, 100, enemy.getName() + "'s Health:\n" + enemy.health.toString());
-			this.enemyHealthText.setFormat(null, 9, 0xeeeeee, "left");
+			this.enemyHealthText = new FlxText(0, 0, 120, enemy.getName() + "'s Health:\n" + enemy.health.toString());
+			this.enemyHealthText.setFormat(null, 12, 0xeeeeee, "left");
 			this.add(enemyHealthText);
 			
-			this.powerupText = new FlxText(0, FlxG.height - 50, 100, "Power up:\nNone");
-			this.powerupText.setFormat(null, 9, 0xeeeeee, "left");
+			this.powerupText = new FlxText(0, FlxG.height - 50, 120, "Power up:\nNone");
+			this.powerupText.setFormat(null, 12, 0xeeeeee, "left");
 			this.add(powerupText);
 		}
 		
