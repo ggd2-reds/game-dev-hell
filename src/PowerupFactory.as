@@ -18,7 +18,7 @@ package
 			
 			// Set the X values
 			var x:Number;
-			var xSpeed:int = Random.generate(2, 5);
+			var xSpeed:int = Random.generate(4, 6);
 			if (direction == 0) {
 				x = 0;
 			}
@@ -28,8 +28,8 @@ package
 			}
 			
 			// Set the Y values
-			var y:Number = Random.generate(0, FlxG.height / 2);
-			var ySpeed:int = Random.generate(2, 5);
+			var y:Number = Random.generate(0, FlxG.height / 2 - 50);
+			var ySpeed:int = Random.generate(4, 8);
 			
 			var powerup:int= Random.generate(0, 3);
 			if (powerup == 0) {
