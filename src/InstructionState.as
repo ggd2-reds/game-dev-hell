@@ -14,16 +14,20 @@ package
 			var text:String =
 				"Rules:\n" +
 				"\t-Defeat the enemy\n" +
-				"\t-You have 5 hits before you die\n" +
+				"\t-You have 4 hits before you die\n" +
 				"\t-There are currently 3 levels\n" +
-				"\t-Powerups appear every 7-10 seconds.\n" +
-				"\t\tThey last for three seconds.\n" +
-				"\t\tUse them wisely\n" +
+				"\t-Powerups appear every 4-6 seconds.\n" +
+				"\t\t-They last for three seconds.\n" +
+				"\t\t-Use them wisely\n" +
+				"\t\t-Powerups Include:\n" +
+				"\t\t\t-Rapid Fire\n" + 
+				"\t\t\t-Wavy Bullet\n" + 
+				"\t\t\t-Health Increase\n" + 
+				"\t\t\t-Invincibility\n" +
 				"Controls:\n" +
 				"\t-Arrow Keys or WASD - Move Up/Down/Left/Right\n" +
 				"\t\t-You can move in all 8 directions\n" +
 				"\t-Space - Shoot\n" +
-				"\t-L - Skip a level\n" + 
 				"\n" +
 				"Press SPACE to go back";
 			var instructionText:FlxText = new FlxText(50, 50, FlxG.width,
