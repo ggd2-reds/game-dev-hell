@@ -10,7 +10,7 @@ package
 		[Embed(source="../assets/Player.png")]
 		public var image : Class;
 		
-		private const speed:int = 400;
+		private const speed:int = 500;
 		
 		private const damangeCost:int = 35;
 		
@@ -150,7 +150,7 @@ package
 		}
 		
 		public function activateRapidFire():void {
-			this.bulletCoolDown = 100;
+			this.bulletCoolDown = 200;
 			this.bulletCoolDownTimer.delay = this.bulletCoolDown;
 			this.maxBullets = 10;
 		}

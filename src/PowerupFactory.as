@@ -9,8 +9,8 @@ package
 		private var state:BaseLevelState;
 		private var player:Player;
 		private var powerupTimer:Timer;
-		private const powerUpCoolDownMin:int = 7 * 1000;
-		private const powerUpCoolDownMax:int = 10 * 1000;
+		private const powerUpCoolDownMin:int = 4 * 1000;
+		private const powerUpCoolDownMax:int = 6 * 1000;
 		
 		private function generatePowerup(e:Event):void {
 			this.powerupTimer.delay = Random.generate(powerUpCoolDownMin, powerUpCoolDownMax);

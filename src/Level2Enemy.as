@@ -18,8 +18,8 @@ package
 
 		protected override function createBullets(x:Number, y:Number):ArrayList {
 			var bullets:ArrayList = new ArrayList();
-			bullets.addItem(new WavyBullet(this.x + (3 * width / 4), y, this.bulletImage, false, bulletSpeed));
-			bullets.addItem(new WavyBullet(this.x + (width / 4), y, this.bulletImage, false, bulletSpeed));
+			bullets.addItem(new WavyBullet(this.x + (4 * width / 5), y, this.bulletImage, false, bulletSpeed));
+			bullets.addItem(new WavyBullet(this.x + (width / 5), y, this.bulletImage, false, bulletSpeed));
 			return bullets;
 		}
 		
