@@ -1,0 +1,29 @@
+What our game is - Rory
+
+Our jobs - Dan
+	2 coders
+	1 artist
+	1 dan
+	
+Used Github issues to track what we needed to do / who would do what.
+
+Game progression - Seth:
+	1. Got controls and collision detection done
+	2. Added more levels and bullet patterns
+	3. Added some art!
+	4. Added powerups and balancing and moar art.
+	5. Final Art and balancing
+	
+Lessons Learned - Everyone:
+	Actionscript is meh, but incredibly easy to learn.
+	Actionscript third party libs are really out of date :|
+	Art can change everything.
+	Dan learned that making music is really hard.
+	
+Future Iterations = Evan
+	Twitter API
+	Musical numbers
+	Moar Levels
+	Moar Bullets
+	Phil Fish
+	A better, not out-of-date language
