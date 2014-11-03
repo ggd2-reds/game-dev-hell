@@ -38,21 +38,21 @@ package
 				bulletCoolDownTimer.delay = currentBulletCoolDown;
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
-				bulletSpeed += 25;
+				bulletSpeed += 150;
 			}
 			else if ((health <= 50) && (currentBulletCoolDown > bulletCoolDown - 200)) {
 				currentBulletCoolDown = bulletCoolDown - 200;
 				bulletCoolDownTimer.delay = currentBulletCoolDown;
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
-				bulletSpeed += 100;
+				bulletSpeed += 150;
 			}
 			else if ((health <= 30) && (currentBulletCoolDown > bulletCoolDown - 300)) {
 				currentBulletCoolDown = bulletCoolDown - 300;
 				bulletCoolDownTimer.delay = currentBulletCoolDown;
 				bulletCoolDownTimer.reset();
 				bulletCoolDownTimer.start();
-				bulletSpeed += 50;
+				bulletSpeed += 150;
 			}
 		}		
 	}
