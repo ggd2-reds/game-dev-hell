@@ -29,10 +29,14 @@ package
 				"\t\t-You can move in all 8 directions\n" +
 				"\t-Space - Shoot\n" +
 				"\n" +
-				"Press SPACE to go back";
+				"Press SPACE to go back to menu";
 			var instructionText:FlxText = new FlxText(50, 50, FlxG.width,
 													  text);
 			instructionText.setFormat(null, 16, 0xeeeeeeee, "left");
+			this.add(instructionText);
+			
+			instructionText = new FlxText(0, (FlxG.height / 2) + 175, FlxG.width, "Created by: Rory Glenn, Evan Albitz\nDaniel Brockwell, Seth Hendrick");
+			instructionText.setFormat( null, 14, 0xeeeeeeee, "center" );
 			this.add(instructionText);
 		}
 		

@@ -6,20 +6,15 @@ package
 	{
 		override public function MenuState():void
 		{
+			this.add(new MainMenuBackground());
+			
 			var text:FlxText = new FlxText( 0, (FlxG.height / 2) - 80, FlxG.width, "Game Dev Hell." );
-			
-			text.setFormat( null, 32, 0xeeeeeeee, "center" );
-			this.add(text);
-			
-			text = new FlxText(0, (FlxG.height / 2) + 80, FlxG.width, "Created by:\n-Rory Glenn\n-Evan Albitz\n-Daniel Brockwell\n-Seth Hendrick");
-			text.setFormat( null, 14, 0xcccccccc, "center" );
-			this.add(text);
 			
 			text = new FlxText( 0, FlxG.height - 60, FlxG.width, "Press SPACE to start" );
 			text.setFormat( null, 16, 0xcccccccc, "center" );
 			this.add(text);
 			
-			text = new FlxText( 0, FlxG.height - 40, FlxG.width, "Press R to for rules" );
+			text = new FlxText( 0, FlxG.height - 40, FlxG.width, "Press R for more rules" );
 			text.setFormat( null, 16, 0xcccccccc, "center" );
 			this.add(text);
 		}
